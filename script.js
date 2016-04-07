@@ -1,31 +1,32 @@
-// RING RING! WAKE UP, API
-
-var weatherAPI = $.getJSON("api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}");
-
 // GLOBAL VARIABLES
 
-var lat;
-var long;
+var LAT;
+var LON;
+var weatherObj;
+
 
 // EVENTS
 
-function getWeather(la,lo){
-  la = lat;
-  lo = long;
-}
-
-function getCoords(){
+function getCoords() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position){
-      lat = position.coords.latitude;
-      long = position.coords.longitude;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      LAT = position.coords.latitude;
+      LON = position.coords.longitude;
     });
   }
 }
 
+function getWeather() {
+  var apiURL = "api.openweathermap.org/data/2.5/weather?lat={" + LAT.toString() + "}&lon={" + LON.toString() + "}";
+  var weatherAPI = $.getJSON(apiURL, function() {
+                             console.log("We're in, Jacobs!")
+                             });
+  weatherObj = JSON.parse(weatherAPI);
+}
+
 // DOCUMENT READY
 
-$(document).ready(function(){
+$(document).ready(function() {
   getCoords();
   getWeather();
 });
