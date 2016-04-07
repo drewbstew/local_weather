@@ -27,7 +27,7 @@ function getCoords() {
 $(document).ready(function() {
   getCoords();
   $.ajax({
-    url: "http://otter.topsy.com/urlinfo.js?url=http://www.nytimes.com",
+    url: "https://otter.topsy.com/urlinfo.js?url=http://www.nytimes.com",
     dataType: 'jsonp',
     success: function(results){
         var title = results.response.oneforty;
