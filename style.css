@@ -1,1 +1,20 @@
-"hello world" 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #3A3A3A;
+  height:100%;
+}
+
+.center-div {
+  max-width: 650px;
+  margin: 0 auto;
+  background-color: #999;
+  height: 100%;
+}
