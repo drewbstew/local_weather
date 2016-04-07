@@ -16,20 +16,24 @@ function getCoords() {
   }
 }
 
-function getWeather() {
-  var apiURL = "api.openweathermap.org/data/2.5/weather?lat=35&lon=139";
-  var weatherAPI = $.ajax({
-    url: apiURL,
-    dataType: "jsonp",
-    successL function(){
-      console.log("We're in, Jacobs!")
-  });
-  weatherObj = JSON.parse(weatherAPI);
-}
+// function getWeather() {
+
+//   var weatherAPI =
+//   weatherObj = JSON.parse(weatherAPI);
+// }
 
 // DOCUMENT READY
 
 $(document).ready(function() {
   getCoords();
-  getWeather();
+  $.ajax({
+    url: "http://otter.topsy.com/urlinfo.js?url=http://www.nytimes.com",
+    dataType: 'jsonp',
+    success: function(results){
+        var title = results.response.oneforty;
+        var numTweets = results.response.trackback_total;
+        $('#results').append(title + ' has ' + numTweets + ' tweets.');
+    }
+});
+  // getWeather();
 });
