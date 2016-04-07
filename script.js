@@ -19,8 +19,8 @@ function getCoords() {
 function getWeather() {
   var apiURL = "api.openweathermap.org/data/2.5/weather?lat={" + LAT.toString() + "}&lon={" + LON.toString() + "}";
   var weatherAPI = $.getJSON(apiURL, function() {
-                             console.log("We're in, Jacobs!")
-                             });
+    console.log("We're in, Jacobs!")
+  });
   weatherObj = JSON.parse(weatherAPI);
 }
 
