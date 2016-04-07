@@ -14,7 +14,7 @@ function getWeather(la,lo){
   lo = long;
 }
 
-function getCoords(lat,long){
+function getCoords(){
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position){
       lat = position.coords.latitude;
@@ -26,5 +26,6 @@ function getCoords(lat,long){
 // DOCUMENT READY
 
 $(document).ready(function(){
+  getCoords();
   getWeather();
 });
