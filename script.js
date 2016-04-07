@@ -18,8 +18,11 @@ function getCoords() {
 
 function getWeather() {
   var apiURL = "api.openweathermap.org/data/2.5/weather?lat=35&lon=139";
-  var weatherAPI = $.getJSON(apiURL, function() {
-    console.log("We're in, Jacobs!")
+  var weatherAPI = $.ajax({
+    url: apiURL,
+    dataType: "jsonp",
+    successL function(){
+      console.log("We're in, Jacobs!")
   });
   weatherObj = JSON.parse(weatherAPI);
 }
