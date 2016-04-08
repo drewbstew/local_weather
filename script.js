@@ -33,7 +33,7 @@ $(function() {
     dataType: 'json',
     url: "example.json",
     success: function(info) {
-      weatherAPI = JSON.parse(info);
+      weatherAPI = info;
     }
   });
   getCoords();
