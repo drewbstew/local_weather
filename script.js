@@ -26,7 +26,7 @@ function getAPI() {
   $.ajax({
     type: 'GET',
     dataType: 'jsonp',
-    url: APIURL,
+    url: "#",
     success: function(info) {
       weatherAPI = info;
     }
