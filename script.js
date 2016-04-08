@@ -17,12 +17,8 @@ function getCoords() {
 }
 
 function setAPIURL() {
-  APIURL = "https://api.forecast.io/forecast/1a6a08acc3ff5154f3946d4ef3a215fa/37.8267,-122.423";
+  APIURL = "https://api.forecast.io/forecast/1a6a08acc3ff5154f3946d4ef3a215fa/" + LAT.toString() + "," + LON.toString();
 }
-
-// function getWeather() {
-//   weatherObj = JSON.parse(weatherAPI);
-// };
 
 // DOCUMENT READY
 
@@ -31,11 +27,10 @@ $(function() {
   $.ajax({
     type: 'GET',
     dataType: 'json',
-    url: "example.json",
+    url: APIURL,
     success: function(info) {
       weatherAPI = info;
     }
   });
   getCoords();
-  // getWeather();
 });
