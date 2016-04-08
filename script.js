@@ -2,7 +2,7 @@
 
 var LAT;
 var LON;
-var weatherAPI = {};
+var weatherAPI;
 var APIURL;
 
 // EVENTS
@@ -13,6 +13,7 @@ function getCoords() {
       LAT = position.coords.latitude;
       LON = position.coords.longitude;
       setAPIURL();
+      getAPI();
     });
   }
 }
@@ -21,10 +22,7 @@ function setAPIURL() {
   APIURL = "https://api.forecast.io/forecast/1a6a08acc3ff5154f3946d4ef3a215fa/" + LAT.toString() + "," + LON.toString();
 }
 
-// DOCUMENT READY
-
-$(function() {
-  getCoords();
+function getAPI() {
   $.ajax({
     type: 'GET',
     dataType: 'jsonp',
@@ -33,4 +31,10 @@ $(function() {
       weatherAPI = info;
     }
   });
+}
+
+// DOCUMENT READY
+
+$(function() {
+  getCoords();
 });
