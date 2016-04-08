@@ -12,6 +12,7 @@ function getCoords() {
     navigator.geolocation.getCurrentPosition(function(position) {
       LAT = position.coords.latitude;
       LON = position.coords.longitude;
+      setAPIURL();
     });
   }
 }
@@ -24,10 +25,9 @@ function setAPIURL() {
 
 $(function() {
   getCoords();
-  setAPIURL();
   $.ajax({
     type: 'GET',
-    dataType: 'json',
+    dataType: 'jsonp',
     url: APIURL,
     success: function(info) {
       weatherAPI = info;
