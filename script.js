@@ -2,7 +2,7 @@
 
 var LAT;
 var LON;
-var weatherObj = {};
+var weatherAPI;
 var APIURL;
 
 // EVENTS
@@ -31,10 +31,11 @@ $(function() {
   $.ajax({
     type: 'GET',
     dataType: 'jsonp',
-    url: APIURL,
+    url: "example.json",
     success: function(info) {
-      console.log("We're in, Jacobs!");
-      weatherObj = $.parseJSON(info)
+      $.each(info, function(key,val) {
+        weatherAPI.key = val;
+      });
     }
   });
   getCoords();
