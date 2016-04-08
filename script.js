@@ -23,9 +23,10 @@ function getWeather() {
     dataType: "jsonp",
     success: function(){
       console.log("We're in, Jacobs!")
+    }
   });
   weatherObj = JSON.parse(weatherAPI);
-}
+};
 
 // DOCUMENT READY
 
