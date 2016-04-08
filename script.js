@@ -21,7 +21,7 @@ function getWeather() {
   var weatherAPI = $.ajax({
     url: apiURL,
     dataType: "jsonp",
-    successL function(){
+    success: function(){
       console.log("We're in, Jacobs!")
   });
   weatherObj = JSON.parse(weatherAPI);
