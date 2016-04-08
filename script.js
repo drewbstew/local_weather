@@ -2,7 +2,7 @@
 
 var LAT;
 var LON;
-var weatherAPI;
+var weatherAPI = {};
 var APIURL;
 
 // EVENTS
@@ -30,7 +30,7 @@ $(function() {
   setAPIURL();
   $.ajax({
     type: 'GET',
-    dataType: 'jsonp',
+    dataType: 'json',
     url: "example.json",
     success: function(info) {
       $.each(info, function(key,val) {
