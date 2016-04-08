@@ -30,6 +30,7 @@ $(function() {
   setAPIURL();
   $.ajax({
     type: 'GET',
+    dataType: 'jsonp',
     url: APIURL,
     success: function(info) {
       console.log("We're in, Jacobs!");
