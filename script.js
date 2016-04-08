@@ -17,7 +17,7 @@ function getCoords() {
 }
 
 function setAPIURL() {
-  APIURL = "http://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=7659f6cb6a239baae136586790309e08";
+  APIURL = "https://api.forecast.io/forecast/1a6a08acc3ff5154f3946d4ef3a215fa/37.8267,-122.423";
 }
 
 // function getWeather() {
@@ -26,7 +26,7 @@ function setAPIURL() {
 
 // DOCUMENT READY
 
-$(document).ready(function() {
+$(function() {
   setAPIURL();
   $.ajax({
     type: 'GET',
