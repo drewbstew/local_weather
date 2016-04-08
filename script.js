@@ -23,6 +23,7 @@ function setAPIURL() {
 // DOCUMENT READY
 
 $(function() {
+  getCoords();
   setAPIURL();
   $.ajax({
     type: 'GET',
@@ -32,5 +33,4 @@ $(function() {
       weatherAPI = info;
     }
   });
-  getCoords();
 });
