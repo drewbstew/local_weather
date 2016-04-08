@@ -17,7 +17,7 @@ function getCoords() {
 }
 
 function setAPIURL() {
-  apiURL = "https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=7659f6cb6a239baae136586790309e08";
+  APIURL = "https://api.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=7659f6cb6a239baae136586790309e08";
 }
 
 // function getWeather() {
