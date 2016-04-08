@@ -33,9 +33,7 @@ $(function() {
     dataType: 'json',
     url: "example.json",
     success: function(info) {
-      $.each(info, function(key,val) {
-        weatherAPI.key = val;
-      });
+      JSON.parse(info);
     }
   });
   getCoords();
