@@ -5,6 +5,16 @@ var LON;
 var weatherAPI;
 var APIURL;
 
+
+// SELECTORS
+
+var $currentWeatherIcon = $("#current-weather-icon");
+var $forecastWeatherIcon = $("#forecast-weather-icon");
+var $body = $(body);
+var $location = $('#loc-name');
+var $currentTemp = $('#current-temp');
+var $currentCond = $('#current-cond');
+
 // EVENTS
 
 function getCoords() {
@@ -26,15 +36,25 @@ function getAPI() {
   $.ajax({
     type: 'GET',
     dataType: 'jsonp',
-    url: "#",
+    url: APIURL,
     success: function(info) {
       weatherAPI = info;
     }
   });
 }
 
+// WEATHER CONTROL
+
+function setWeather() {
+  if (typeof weatherAPI === "object") {
+    $currentTemp.html(Math.round(weatherAPI.currently.temperature));
+    $currentCond.html(weatherAPI.currently.summary);
+  }
+}
+
 // DOCUMENT READY
 
 $(function() {
   getCoords();
+  setWeather();
 });
