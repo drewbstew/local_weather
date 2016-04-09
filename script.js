@@ -17,13 +17,14 @@ var $currentCond = $('#current-cond');
 
 // EVENTS
 
-function getCoords() {
+function makeRocketGoNow() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       LAT = position.coords.latitude;
       LON = position.coords.longitude;
       setAPIURL();
       getAPI();
+      setWeather();
     });
   }
 }
@@ -55,6 +56,5 @@ function setWeather() {
 // DOCUMENT READY
 
 $(function() {
-  getCoords();
-  setWeather();
+  makeRocketGoNow();
 });
