@@ -10,7 +10,7 @@ var APIURL;
 
 var $currentWeatherIcon = $("#current-weather-icon");
 var $forecastWeatherIcon = $("#forecast-weather-icon");
-var $body = $(body);
+//var $body = $(body);
 var $location = $('#loc-name');
 var $currentTemp = $('#current-temp');
 var $currentCond = $('#current-cond');
