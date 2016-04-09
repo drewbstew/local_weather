@@ -9,14 +9,43 @@
 </script>
 <header>
   <title>BellWeather: Why Look Outside?</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width-device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="style.css" />
   <script   src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.css" />
 </header>
 <body>
-  <div class="center-div">
-    <h1>BellWeather</h1>
-    <h3>Why look outside?</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <div class="container">
+    <div class="header">
+      <h1><i class="fa fa-bell"></i>BellWeather</h1>
+      <h3>Why look outside?</h3>
+    </div>
+    <div class="city-header">
+      <h3 id="loc-name">Citytown, USA</h3>
+    </div>
+    <div class="current row">
+      <div class="icon-col">
+        <i class="wi wi-day-sunny" id="current-weather-icon"></i>
+      </div>
+      <div class="info-col">
+        <ul>
+          <li id="current-temp">9001&deg;F</li>
+          <li id="current-cond">Clartly Poudy</li>
+        </ul>
+      </div>
+    </div>
+    <div class="forecast row">
+      <div class="icon-col">
+        <i class="wi wi-day-sunny" id="forecast-weather-icon"></i>
+      </div>
+      <div class="info-col">
+        <ul>
+          <li id="forecast-temp">9001&deg;F</li>
+          <li id="forecast-cond">Clartly Poudy</li>
+        </ul>
+    </div>
   </div>
 </body>
 <script type="text/javascript" src="script.js"></script>

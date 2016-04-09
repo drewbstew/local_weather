@@ -5,16 +5,33 @@
 
 html {
   height: 100%;
+  background-color: #3A3A3A;
+}
+
+h3 {
+  font-style: italic;
 }
 
 body {
-  background-color: #3A3A3A;
   height: 100%;
+  background-color: #3A3A3A;
 }
 
-.center-div {
+.container {
   max-width: 650px;
   margin: 0 auto;
   background-color: #999;
   height: 100%;
+}
+
+.header {
+  text-align: center;
+}
+
+.row {
+  display:block;
+}
+
+ul {
+  list-style: none;
 }
