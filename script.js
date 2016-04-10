@@ -28,7 +28,6 @@ function makeRocketGoNow() {
       getWeatherAPI();
       setGoogleAPIURL();
       getGoogleAPI();
-      findCityName();
     });
   }
 }
@@ -48,6 +47,7 @@ function getWeatherAPI() {
     url: APIURL,
     success: function(info) {
       weatherAPI = info;
+      findCityName();
     }
   });
 }
