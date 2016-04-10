@@ -4,6 +4,8 @@ var LAT;
 var LON;
 var weatherAPI;
 var APIURL;
+var GOOGLEAPIURL;
+var googleAPI;
 
 
 // SELECTORS
@@ -22,18 +24,23 @@ function makeRocketGoNow() {
     navigator.geolocation.getCurrentPosition(function(position) {
       LAT = position.coords.latitude;
       LON = position.coords.longitude;
-      setAPIURL();
-      getAPI();
-      setWeather();
+      setWeatherAPIURL();
+      getWeatherAPI();
+      setGoogleAPIURL();
+      getGoogleAPI();
     });
   }
 }
 
-function setAPIURL() {
+function setWeatherAPIURL() {
   APIURL = "https://api.forecast.io/forecast/1a6a08acc3ff5154f3946d4ef3a215fa/" + LAT.toString() + "," + LON.toString();
 }
 
-function getAPI() {
+function setGoogleAPIURL() {
+  GOOGLEAPIURL = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + LAT.toString() + "," + LON.tostring() + "&sensor=false";
+}
+
+function getWeatherAPI() {
   $.ajax({
     type: 'GET',
     dataType: 'jsonp',
@@ -42,6 +49,28 @@ function getAPI() {
       weatherAPI = info;
     }
   });
+}
+
+function getGoogleAPI() {
+  $.ajax({
+    type: 'GET',
+    dataType: 'jsonp',
+    url: GOOGLEAPIURL;
+    success: function(info) {
+      googleAPI = info;
+    }
+  })
+}
+
+function findCityName() {
+  var addressComponents = googleAPI.results[0].address_components;
+  for (i = 0; i < addressComponents.length; i++) {
+    if (addressComponents[i].types[0] == "locality" && addressComponents[i].types[1] == "political") {
+      $location = addressComponents[i].short_name
+    } else {
+      i++;
+    }
+  }
 }
 
 // WEATHER CONTROL
