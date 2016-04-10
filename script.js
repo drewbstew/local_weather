@@ -55,7 +55,7 @@ function getGoogleAPI() {
   $.ajax({
     type: 'GET',
     dataType: 'jsonp',
-    url: GOOGLEAPIURL;
+    url: GOOGLEAPIURL,
     success: function(info) {
       googleAPI = info;
     }
