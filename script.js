@@ -47,7 +47,6 @@ function getWeatherAPI() {
     url: APIURL,
     success: function(info) {
       weatherAPI = info;
-      findCityName();
     }
   });
 }
@@ -59,6 +58,7 @@ function getGoogleAPI() {
     url: GOOGLEAPIURL,
     success: function(info) {
       googleAPI = info;
+      findCityName();
     }
   })
 }
