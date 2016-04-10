@@ -37,7 +37,7 @@ function setWeatherAPIURL() {
 }
 
 function setGoogleAPIURL() {
-  GOOGLEAPIURL = "http://maps.googleapis.com/maps/api/geocode/json?latlng=" + LAT.toString() + "," + LON.toString() + "&sensor=false";
+  GOOGLEAPIURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + LAT.toString() + "," + LON.toString() + "&sensor=false";
 }
 
 function getWeatherAPI() {
