@@ -54,7 +54,7 @@ function getWeatherAPI() {
 function getGoogleAPI() {
   $.ajax({
     type: 'GET',
-    dataType: 'jsonp',
+    dataType: 'json',
     url: GOOGLEAPIURL,
     success: function(info) {
       googleAPI = info;
