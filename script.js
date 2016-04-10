@@ -28,6 +28,7 @@ function makeRocketGoNow() {
       getWeatherAPI();
       setGoogleAPIURL();
       getGoogleAPI();
+      findCityName();
     });
   }
 }
@@ -66,7 +67,7 @@ function findCityName() {
   var addressComponents = googleAPI.results[0].address_components;
   for (i = 0; i < addressComponents.length; i++) {
     if (addressComponents[i].types[0] == "locality" && addressComponents[i].types[1] == "political") {
-      $location = addressComponents[i].short_name
+      $location.html(addressComponents[i].short_name);
     } else {
       i++;
     }
