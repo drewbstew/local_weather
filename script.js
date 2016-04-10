@@ -6,6 +6,9 @@ var weatherAPI;
 var APIURL;
 var GOOGLEAPIURL;
 var googleAPI;
+var centigrade = false;
+// Centigrade is the superior term. Centi=100 grade="step". Deal with it.
+var tempDisplay;
 
 
 // SELECTORS
@@ -47,6 +50,7 @@ function getWeatherAPI() {
     url: APIURL,
     success: function(info) {
       weatherAPI = info;
+      setWeather();
     }
   });
 }
@@ -67,18 +71,27 @@ function findCityName() {
   var addressComponents = googleAPI.results[0].address_components;
   for (i = 0; i < addressComponents.length; i++) {
     if (addressComponents[i].types[0] == "locality" && addressComponents[i].types[1] == "political") {
-      $location.html(addressComponents[i].short_name);
-    } else {
-      i++;
+      $location.html(addressComponents[i].long_name);
+      break;
     }
   }
 }
 
 // WEATHER CONTROL
 
+// faere... faren... farin... FUCK I hate that word
+function fOrC() {
+  if (!centigrade) {
+    tempDisplay = "F";
+  } else {
+    tempDisplay = "C";
+  }
+}
+
 function setWeather() {
+  fOrC();
   if (typeof weatherAPI === "object") {
-    $currentTemp.html(Math.round(weatherAPI.currently.temperature));
+    $currentTemp.html(Math.round(weatherAPI.currently.temperature) + "&deg;" + tempDisplay);
     $currentCond.html(weatherAPI.currently.summary);
   }
 }
