@@ -1,10 +1,10 @@
 // GLOBAL VARIABLES
 
-var LAT;
-var LON;
+var lat;
+var lon;
 var weatherAPI;
-var APIURL;
-var GOOGLEAPIURL;
+var apiURL;
+var googleAPIURL;
 var googleAPI;
 var centigrade = false;
 var tempDisplay;
@@ -12,12 +12,13 @@ var tempDisplay;
 // SELECTORS
 
 var $currentWeatherIcon = $("#current-weather-icon");
-//var $forecastWeatherIcon = $("#forecast-weather-icon");
 var $location = $('#loc-name');
 var $currentTemp = $('#current-temp');
 var $currentCond = $('#current-cond');
 var $body = $('body');
 var $tempSwitch = $('#temp-switch');
+var $forecastSummary = $('#forecast-summary');
+var $forecastDays = $('.forecast-day-container');
 
 // EVENTS
 
@@ -33,8 +34,8 @@ $tempSwitch.click(function(){
 function makeRocketGoNow() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-      LAT = position.coords.latitude;
-      LON = position.coords.longitude;
+      lat = position.coords.latitude;
+      lon = position.coords.longitude;
       getWeatherAPI();
       getGoogleAPI();
     });
@@ -42,11 +43,11 @@ function makeRocketGoNow() {
 }
 
 function setWeatherAPIURL() {
-  APIURL = "https://api.forecast.io/forecast/1a6a08acc3ff5154f3946d4ef3a215fa/" + LAT.toString() + "," + LON.toString();
+  apiURL = "https://api.forecast.io/forecast/1a6a08acc3ff5154f3946d4ef3a215fa/" + lat.toString() + "," + lon.toString();
 }
 
 function setGoogleAPIURL() {
-  GOOGLEAPIURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + LAT.toString() + "," + LON.toString() + "&sensor=false";
+  googleAPIURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat.toString() + "," + lon.toString() + "&sensor=false";
 }
 
 function getWeatherAPI() {
@@ -54,7 +55,7 @@ function getWeatherAPI() {
   $.ajax({
     type: 'GET',
     dataType: 'jsonp',
-    url: APIURL,
+    url: apiURL,
     success: function(info) {
       weatherAPI = info;
       setWeather();
@@ -67,7 +68,7 @@ function getGoogleAPI() {
   $.ajax({
     type: 'GET',
     dataType: 'json',
-    url: GOOGLEAPIURL,
+    url: googleAPIURL,
     success: function(info) {
       googleAPI = info;
       findCityName();
@@ -100,6 +101,7 @@ function setWeather() {
   fOrC();
   if (typeof weatherAPI === "object") {
     setCurrentWeather(formatConditions(weatherAPI.currently.icon));
+    setForecastWeather();
   }
 }
 
@@ -109,6 +111,27 @@ function formatTemp(temp) {
   } else {
     return Math.round(temp)
   }
+}
+
+function setForecastWeather() {
+  $forecastSummary.html(weatherAPI.daily.summary);
+  setForecastDailyWeather();
+}
+
+function setForecastDailyWeather() {
+  var forecastData = weatherAPI.daily.data;
+  for (i = 1, i < $forecastDays.length, i++) {
+    var conditions = formatConditions(forecastData[i].icon);
+    $forecastDays[i-1].find("h4").html(findDay(forecastData[i].time));
+    $forecastDays[i-1].find("p").html(forecastData[i].summary);
+    $forecastDays[i-1].find(".row .info-col .ul .forecast-temp-max").html("High: " + formatTemp(forecastData[i].temperatureMax).toString());
+    $forecastDays[i-1].find(".row .info-col .ul .forecast-temp-min").html("Low: " + formatTemp(forecastData[i].temperatureMin).toString());
+    changeIcon($forecastDays[i-1].find(".row .info-col .weather-icon"), conditions);
+  }
+}
+
+function findDay(time) {
+
 }
 
 function setCurrentWeather(conditions) {
@@ -179,7 +202,6 @@ function formatConditions(conditions) {
       break;
   }
 }
-
 
 // DOCUMENT READY
 
