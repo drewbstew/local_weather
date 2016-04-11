@@ -28,7 +28,7 @@ $tempSwitch.click(function(){
     centigrade = false;
   }
   setWeather();
-}
+});
 
 function makeRocketGoNow() {
   if (navigator.geolocation) {
