@@ -34,7 +34,7 @@ body {
   max-width: 550px;
   margin: 0 auto;
   padding: 0 20px;
-  background-color: rgba(192, 192, 192, 0.5);;
+  background-color: rgba(192, 192, 192, 0.5);
   height: 100%;
 }
 
@@ -114,6 +114,10 @@ ul {
 }
 
 /*FORECAST WEATHER*/
+
+.forecast:nth-child(odd) {
+  background-color: rgba(100, 100, 100, 0.5);
+}
 
 .forecast-info {
   background-color: #fff;
