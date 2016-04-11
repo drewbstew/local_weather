@@ -127,7 +127,7 @@ function setForecastDailyWeather() {
     this.find(".row .info-col .ul .forecast-temp-max").html("High: " + formatTemp(forecastData[i].temperatureMax).toString());
     this.find(".row .info-col .ul .forecast-temp-min").html("Low: " + formatTemp(forecastData[i].temperatureMin).toString());
     changeIcon(this.find(".row .info-col .weather-icon"), conditions);
-  }
+  });
 }
 
 function findDay(time) {
