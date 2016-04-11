@@ -120,8 +120,8 @@ function setForecastWeather() {
 
 function setForecastDailyWeather() {
   var forecastData = weatherAPI.daily.data;
+  var i = 0;
   $forecastDays.each(function() {
-    var i = 0;
     var conditions = formatConditions(forecastData[i].icon);
     $(this).find("h4").html(findDay(forecastData[i].time));
     $(this).find("p").html(forecastData[i].summary);
