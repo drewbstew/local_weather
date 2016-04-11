@@ -116,6 +116,10 @@ function formatTemp(temp) {
 function setCurrentWeather(conditions) {
   $currentTemp.html(formatTemp(Math.round(weatherAPI.currently.temperature)) + "&deg;" + tempDisplay);
   $currentCond.html(weatherAPI.currently.summary);
+  changeBackgroundImage(conditons);
+}
+
+function changeBackgroundImage(conditions) {
   case 'cloudy':
     $body.css('background-image','url(images/cloudy.jpg');
     break;
