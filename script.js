@@ -116,16 +116,16 @@ function formatTemp(temp) {
 function setCurrentWeather(conditions) {
   $currentTemp.html(formatTemp(Math.round(weatherAPI.currently.temperature)) + "&deg;" + tempDisplay);
   $currentCond.html(weatherAPI.currently.summary);
-  case conditions == 'cloudy':
+  case 'cloudy':
     $body.css('background-image','url(images/cloudy.jpg');
     break;
-  case conditions == 'snow':
+  case 'snow':
     $body.css('background-image','url(images/snow.jpg)');
     break;
-  case conditions == 'rain':
+  case 'rain':
     $body.css('background-image','url(images/rain.jpg)');
     break;
-  case conditions == 'clear-night':
+  case 'clear-night':
     $body.css('background-image','url(images/clear-night.jpg)');
     break;
   case default:
@@ -134,16 +134,16 @@ function setCurrentWeather(conditions) {
 }
 
 function changeIcon(icon, conditions) {
-  case conditions == 'cloudy':
+  case 'cloudy':
     icon.addClass('wi-cloudy').removeClass('wi-day-sunny');
     break;
-  case conditions == 'snow':
+  case 'snow':
     icon.addClass('wi-snow').removeClass('wi-day-sunny');
     break;
-  case conditions == 'rain':
+  case 'rain':
     icon.addClass('wi-rain').removeClass('wi-day-sunny');
     break;
-  case conditions == 'clear-night':
+  case 'clear-night':
     $body.css('background-image','url(images/clear-night.jpg)');
     icon.addClass('wi-night-clear').removeClass('wi-day-sunny');
     break;
