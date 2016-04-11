@@ -117,6 +117,7 @@ function setCurrentWeather(conditions) {
   $currentTemp.html(formatTemp(Math.round(weatherAPI.currently.temperature)) + "&deg;" + tempDisplay);
   $currentCond.html(weatherAPI.currently.summary);
   changeBackgroundImage(conditions);
+  changeIcon($currentWeatherIcon, conditions);
 }
 
 function changeBackgroundImage(conditions) {
