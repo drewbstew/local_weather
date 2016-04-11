@@ -127,7 +127,7 @@ function setForecastDailyWeather() {
     $(this).find("p").html(forecastData[i].summary);
     $(this).find(".row .info-col ul .forecast-temp-max").html("High: " + formatTemp(forecastData[i].temperatureMax).toString() + "&deg;" + tempDisplay);
     $(this).find(".row .info-col ul .forecast-temp-min").html("Low: " + formatTemp(forecastData[i].temperatureMin).toString() + "&deg;" + tempDisplay);
-    changeIcon($(this).find(".row .info-col .weather-icon"), conditions);
+    changeIcon($(this).find(".row .icon-col .weather-icon"), conditions);
     i++;
   });
 }
