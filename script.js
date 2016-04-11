@@ -120,13 +120,13 @@ function setForecastWeather() {
 
 function setForecastDailyWeather() {
   var forecastData = weatherAPI.daily.data;
-  for (i = 1; i < $forecastDays.length; i++) {
+  $forecastDays.each(function(i) {
     var conditions = formatConditions(forecastData[i].icon);
-    $forecastDays[i-1].find("h4").html(findDay(forecastData[i].time));
-    $forecastDays[i-1].find("p").html(forecastData[i].summary);
-    $forecastDays[i-1].find(".row .info-col .ul .forecast-temp-max").html("High: " + formatTemp(forecastData[i].temperatureMax).toString());
-    $forecastDays[i-1].find(".row .info-col .ul .forecast-temp-min").html("Low: " + formatTemp(forecastData[i].temperatureMin).toString());
-    changeIcon($forecastDays[i-1].find(".row .info-col .weather-icon"), conditions);
+    this.find("h4").html(findDay(forecastData[i].time));
+    this.find("p").html(forecastData[i].summary);
+    this.find(".row .info-col .ul .forecast-temp-max").html("High: " + formatTemp(forecastData[i].temperatureMax).toString());
+    this.find(".row .info-col .ul .forecast-temp-min").html("Low: " + formatTemp(forecastData[i].temperatureMin).toString());
+    changeIcon(this.find(".row .info-col .weather-icon"), conditions);
   }
 }
 
