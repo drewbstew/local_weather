@@ -21,14 +21,12 @@ var $tempSwitch = $('#temp-switch');
 
 // EVENTS
 
-function clickTempSwitch() {
-  $tempSwitch.on('click', function(){
-    if (centigrade == false) {
-      centigrade = true;
-    } else {
-      centigrade = false;
-    }
-  });
+$tempSwitch.click(function(){
+  if (centigrade == false) {
+    centigrade = true;
+  } else {
+    centigrade = false;
+  }
   setWeather();
 }
 
