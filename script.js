@@ -10,7 +10,6 @@ var centigrade = false;
 var tempDisplay;
 var tempFormatted;
 
-
 // SELECTORS
 
 var $currentWeatherIcon = $("#current-weather-icon");
@@ -133,7 +132,7 @@ function changeBackgroundImage(conditions) {
     case 'clear-night':
       $body.css('background-image','url(images/clear-night.jpg)');
       break;
-    case default:
+    default:
       $body.css('background-image','url(images/clear-day.jpg)');
       break;
   }
@@ -153,7 +152,7 @@ function changeIcon(icon, conditions) {
     case 'clear-night':
       icon.addClass('wi-night-clear').removeClass('wi-day-sunny');
       break;
-    case default:
+    default:
       break;
   }
 }
