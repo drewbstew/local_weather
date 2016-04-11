@@ -120,60 +120,65 @@ function setCurrentWeather(conditions) {
 }
 
 function changeBackgroundImage(conditions) {
-  case 'cloudy':
-    $body.css('background-image','url(images/cloudy.jpg');
-    break;
-  case 'snow':
-    $body.css('background-image','url(images/snow.jpg)');
-    break;
-  case 'rain':
-    $body.css('background-image','url(images/rain.jpg)');
-    break;
-  case 'clear-night':
-    $body.css('background-image','url(images/clear-night.jpg)');
-    break;
-  case default:
-    $body.css('background-image','url(images/clear-day.jpg)');
-    break;
+  switch (conditions) {
+    case 'cloudy':
+      $body.css('background-image','url(images/cloudy.jpg');
+      break;
+    case 'snow':
+      $body.css('background-image','url(images/snow.jpg)');
+      break;
+    case 'rain':
+      $body.css('background-image','url(images/rain.jpg)');
+      break;
+    case 'clear-night':
+      $body.css('background-image','url(images/clear-night.jpg)');
+      break;
+    case default:
+      $body.css('background-image','url(images/clear-day.jpg)');
+      break;
+  }
 }
 
 function changeIcon(icon, conditions) {
-  case 'cloudy':
-    icon.addClass('wi-cloudy').removeClass('wi-day-sunny');
-    break;
-  case 'snow':
-    icon.addClass('wi-snow').removeClass('wi-day-sunny');
-    break;
-  case 'rain':
-    icon.addClass('wi-rain').removeClass('wi-day-sunny');
-    break;
-  case 'clear-night':
-    $body.css('background-image','url(images/clear-night.jpg)');
-    icon.addClass('wi-night-clear').removeClass('wi-day-sunny');
-    break;
-  case default:
-    break;
+  switch (conditions) {
+    case 'cloudy':
+      icon.addClass('wi-cloudy').removeClass('wi-day-sunny');
+      break;
+    case 'snow':
+      icon.addClass('wi-snow').removeClass('wi-day-sunny');
+      break;
+    case 'rain':
+      icon.addClass('wi-rain').removeClass('wi-day-sunny');
+      break;
+    case 'clear-night':
+      icon.addClass('wi-night-clear').removeClass('wi-day-sunny');
+      break;
+    case default:
+      break;
+  }
 }
 
-function formatConditions() {
-  case 'cloudy':
-  case 'partly-cloudy-day':
-  case 'partly-cloudy-night':
-    return 'cloudy';
-    break;
-  case 'rain':
-    return 'rain';
-    break;
-  case 'snow':
-  case 'sleet':
-    return 'snow';
-    break;
-  case 'clear-night':
-    return 'clear-night';
-    break;
-  default:
-    return 'clear-day';
-    break;
+function formatConditions(conditions) {
+  switch (conditions) {
+    case 'cloudy':
+    case 'partly-cloudy-day':
+    case 'partly-cloudy-night':
+      return 'cloudy';
+      break;
+    case 'rain':
+      return 'rain';
+      break;
+    case 'snow':
+    case 'sleet':
+      return 'snow';
+      break;
+    case 'clear-night':
+      return 'clear-night';
+      break;
+    default:
+      return 'clear-day';
+      break;
+  }
 }
 
 
