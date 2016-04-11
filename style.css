@@ -32,7 +32,7 @@ body {
 .container {
   max-width: 550px;
   margin: 0 auto;
-  padding: 0 20px;
+  /*padding: 0 20px;*/
   background-color: rgba(192, 192, 192, 0.5);
   height: 100%;
 }
@@ -97,6 +97,7 @@ ul {
 
 .button-div {
   display: block;
+  padding-right: 10px;
 }
 
 #temp-switch {
