@@ -105,14 +105,14 @@ function setWeather() {
 
 function formatTemp(temp) {
   if (centigrade) {
-    return (temp - 32) * (5/9)
+    return Math.round((temp - 32) * (5/9))
   } else {
-    return temp
+    return Math.round(temp)
   }
 }
 
 function setCurrentWeather(conditions) {
-  $currentTemp.html(formatTemp(Math.round(weatherAPI.currently.temperature)) + "&deg;" + tempDisplay);
+  $currentTemp.html(formatTemp(weatherAPI.currently.temperature) + "&deg;" + tempDisplay);
   $currentCond.html(weatherAPI.currently.summary);
   changeBackgroundImage(conditions);
   changeIcon($currentWeatherIcon, conditions);
