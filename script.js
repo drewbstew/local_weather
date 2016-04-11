@@ -39,6 +39,7 @@ function makeRocketGoNow() {
       LON = position.coords.longitude;
       getWeatherAPI();
       getGoogleAPI();
+      clickTempSwitch();
     });
   }
 }
