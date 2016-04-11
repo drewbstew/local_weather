@@ -7,29 +7,39 @@ var APIURL;
 var GOOGLEAPIURL;
 var googleAPI;
 var centigrade = false;
-// Centigrade is the superior term. Centi=100 grade="step". Deal with it.
 var tempDisplay;
+var tempFormatted;
 
 
 // SELECTORS
 
 var $currentWeatherIcon = $("#current-weather-icon");
-var $forecastWeatherIcon = $("#forecast-weather-icon");
-//var $body = $(body);
+//var $forecastWeatherIcon = $("#forecast-weather-icon");
 var $location = $('#loc-name');
 var $currentTemp = $('#current-temp');
 var $currentCond = $('#current-cond');
+var $body = $('body');
+var $tempSwitch = $('#temp-switch');
 
 // EVENTS
+
+function clickTempSwitch() {
+  $tempSwitch.on('click', function(){
+    if (centigrade == false) {
+      centigrade = true;
+    } else {
+      centigrade = false;
+    }
+  });
+  setWeather();
+}
 
 function makeRocketGoNow() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       LAT = position.coords.latitude;
       LON = position.coords.longitude;
-      setWeatherAPIURL();
       getWeatherAPI();
-      setGoogleAPIURL();
       getGoogleAPI();
     });
   }
@@ -44,6 +54,7 @@ function setGoogleAPIURL() {
 }
 
 function getWeatherAPI() {
+  setWeatherAPIURL();
   $.ajax({
     type: 'GET',
     dataType: 'jsonp',
@@ -56,6 +67,7 @@ function getWeatherAPI() {
 }
 
 function getGoogleAPI() {
+  setGoogleAPIURL();
   $.ajax({
     type: 'GET',
     dataType: 'json',
@@ -77,8 +89,6 @@ function findCityName() {
   }
 }
 
-// WEATHER CONTROL
-
 // faere... faren... farin... FUCK I hate that word
 function fOrC() {
   if (!centigrade) {
@@ -88,13 +98,80 @@ function fOrC() {
   }
 }
 
+// WEATHER CONTROL
+
 function setWeather() {
   fOrC();
   if (typeof weatherAPI === "object") {
-    $currentTemp.html(Math.round(weatherAPI.currently.temperature) + "&deg;" + tempDisplay);
-    $currentCond.html(weatherAPI.currently.summary);
+    setCurrentWeather(formatConditions(weatherAPI.currently.icon));
   }
 }
+
+function formatTemp(temp) {
+  if (centigrade) {
+    return (temp - 32) * (5/9)
+  }
+}
+
+function setCurrentWeather(conditions) {
+  $currentTemp.html(formatTemp(Math.round(weatherAPI.currently.temperature)) + "&deg;" + tempDisplay);
+  $currentCond.html(weatherAPI.currently.summary);
+  case conditions == 'cloudy':
+    $body.css('background-image','url(images/cloudy.jpg');
+    break;
+  case conditions == 'snow':
+    $body.css('background-image','url(images/snow.jpg)');
+    break;
+  case conditions == 'rain':
+    $body.css('background-image','url(images/rain.jpg)');
+    break;
+  case conditions == 'clear-night':
+    $body.css('background-image','url(images/clear-night.jpg)');
+    break;
+  case default:
+    $body.css('background-image','url(images/clear-day.jpg)');
+    break;
+}
+
+function changeIcon(icon, conditions) {
+  case conditions == 'cloudy':
+    icon.addClass('wi-cloudy').removeClass('wi-day-sunny');
+    break;
+  case conditions == 'snow':
+    icon.addClass('wi-snow').removeClass('wi-day-sunny');
+    break;
+  case conditions == 'rain':
+    icon.addClass('wi-rain').removeClass('wi-day-sunny');
+    break;
+  case conditions == 'clear-night':
+    $body.css('background-image','url(images/clear-night.jpg)');
+    icon.addClass('wi-night-clear').removeClass('wi-day-sunny');
+    break;
+  case default:
+    break;
+}
+
+function formatConditions() {
+  case 'cloudy':
+  case 'partly-cloudy-day':
+  case 'partly-cloudy-night':
+    return 'cloudy';
+    break;
+  case 'rain':
+    return 'rain';
+    break;
+  case 'snow':
+  case 'sleet':
+    return 'snow';
+    break;
+  case 'clear-night':
+    return 'clear-night';
+    break;
+  default:
+    return 'clear-day';
+    break;
+}
+
 
 // DOCUMENT READY
 
