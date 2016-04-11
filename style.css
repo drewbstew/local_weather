@@ -24,6 +24,8 @@ h4 {
 
 body {
   background-color: #3A3A3A;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   flex-direction: column;
 }
@@ -32,7 +34,7 @@ body {
   max-width: 550px;
   margin: 0 auto;
   padding: 0 20px;
-  background-color: #999;
+  background-color: rgba(192, 192, 192, 0.5);;
   height: 100%;
 }
 
