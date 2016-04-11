@@ -8,7 +8,6 @@ var GOOGLEAPIURL;
 var googleAPI;
 var centigrade = false;
 var tempDisplay;
-var tempFormatted;
 
 // SELECTORS
 
@@ -109,6 +108,8 @@ function setWeather() {
 function formatTemp(temp) {
   if (centigrade) {
     return (temp - 32) * (5/9)
+  } else {
+    return temp
   }
 }
 
