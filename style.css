@@ -127,7 +127,13 @@ ul {
   margin: 0 auto;
 }
 
+.forecast-day-container p {
+    text-align: center;
+}
+
 .forecast-day {
+  padding: 20px 0 10px 0;
+  font-size: 24px;
   clear: both;
 }
 
