@@ -138,7 +138,7 @@ function findDay(time) {
   if ((newDate - today/1000) <= 86400) {
     return "Tomorrow"
   } else {
-    return getWeekday(newDate) + ", " + getMonthName(newDate) + " " + getDate(newDate);
+    return getWeekday(newDate) + ", " + getMonthName(newDate) + " " + newDate.getDate();
   }
 }
 
