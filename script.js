@@ -145,7 +145,7 @@ function setForecastDailyWeather() {
 
 function findDay(time) {
   var newDate = new Date(time * 1000);
-  var today = new Date();
+  var today = new Date().getTime();
   if ((newDate - today) <= 86400) {
     return "Tomorrow"
   } else {
