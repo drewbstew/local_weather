@@ -22,13 +22,23 @@ var $forecastDays = $('.forecast-day-container');
 
 // EVENTS
 
+function changeButtonText() {
+  degree = ['Celsius', 'Fahrenheit']
+  if (!centigrade) {
+    $tempSwitch.html("Switch to " + degree[0])
+  } else {
+    $tempSwitch.html("Switch to " + degree[1])
+  }
+}
+
 $tempSwitch.click(function(){
-  if (centigrade == false) {
+  if (!centigrade) {
     centigrade = true;
   } else {
     centigrade = false;
   }
   setWeather();
+  changeButtonText();
 });
 
 function makeRocketGoNow() {
@@ -38,6 +48,7 @@ function makeRocketGoNow() {
       lon = position.coords.longitude;
       getWeatherAPI();
       getGoogleAPI();
+      changeButtonText();
     });
   }
 }
