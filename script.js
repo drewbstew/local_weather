@@ -133,7 +133,23 @@ function setForecastDailyWeather() {
 }
 
 function findDay(time) {
+  var newDate = new Date(time);
+  var today = new Date();
+  if ((newDate - today) <= 86400000) {
+    return "Tomorrow"
+  } else {
+    return getWeekday(newDate) + ", " + getMonthName(newDate) + " " + getDate(newDate);
+  }
+}
 
+function getWeekday(date) {
+  var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  return weekday[date.getDay()]
+}
+
+function getMonthName(date) {
+  var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  return months[date.getMonth()]
 }
 
 function setCurrentWeather(conditions) {
