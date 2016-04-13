@@ -182,10 +182,10 @@ function changeBackgroundImage(conditions) {
       $body.css('background-image','url(images/rain.jpg)');
       break;
     case 'clear-night':
-      $body.css('background-image','url(images/clear-night.jpg)');
+      $body.css('background-image','url(images/clear_night.jpg)');
       break;
     default:
-      $body.css('background-image','url(images/clear-day.jpg)');
+      $body.css('background-image','url(images/clear_day.jpg)');
       break;
   }
 }
