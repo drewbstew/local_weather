@@ -109,6 +109,11 @@ ul {
   margin: 10px 0 20px 0;
   color: black;
   text-shadow: none;
+  cursor: pointer;
+}
+
+#temp-switch:focus {
+  outline: none;
 }
 
 /* CURRENT WEATHER */
