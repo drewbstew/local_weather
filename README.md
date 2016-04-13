@@ -7,12 +7,12 @@ Current Features:
 * Uses Google Maps API to determine city name w/ reverse geolocation
 * Background image and icons change based on summary of weather
 * Displays temperature in either Fahrenheit or Celsius
+* 7-Day forecast summary, with individual daily summaries and the day's high/low temp.
 
 Planned Features:
-* 7-Day forecast information
 * [Possible] Change location lookup by GPS coordinates (or maybe Zip Code?)
-* Better responsive design
+* Better responsive design (and visual design overall)
 
-I've been forgetting to update this.
+I keep forgetting to update this. This may be a few commits back at any given time.
 
-LAST UPDATE: 4/12/16 - Updating some style on the center container; background is now darker and more opaque for better readability.
+LAST UPDATE: 4/12/16 - Updating some style on the center container; background is now darker and more opaque for better readability. Also updated this darn README.
