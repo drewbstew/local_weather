@@ -15,4 +15,4 @@ Planned Features:
 
 I've been forgetting to update this.
 
-LAST UPDATE: 4/11/16
+LAST UPDATE: 4/12/16 - Updating some style on the center container; background is now darker and more opaque for better readability.
