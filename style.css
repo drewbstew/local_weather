@@ -3,6 +3,7 @@
   padding: 0;
   color: white;
   font-family: 'Arimo', sans-serif;
+  text-shadow: 2px 2px 1px gray;
 }
 
 html {
@@ -24,7 +25,7 @@ h4 {
 }
 
 body {
-  background-image: url(images/clear_day.jpg);
+  background-image: url(http://s15.postimg.org/pisinjzcp/clear_day.jpg);
   background-repeat: no-repeat;
   background-position: center top;
   display: flex;
@@ -107,6 +108,7 @@ ul {
   border-radius: 10px;
   margin: 10px 0 20px 0;
   color: black;
+  text-shadow: none;
 }
 
 /* CURRENT WEATHER */
