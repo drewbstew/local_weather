@@ -13,9 +13,8 @@ Planned Features:
 * [Possible] Change location lookup by GPS coordinates (or maybe Zip Code?)
 * Better responsive design (and visual design overall)
 
-Known Bugs:
-* Temperature format does not change in forecast summaries when Celsius is selected.
-
 I keep forgetting to update this. This may be a few commits back at any given time.
 
-LAST UPDATE: 4/12/16 - Updating some style on the center container; background is now darker and more opaque for better readability. Also updated this darn README.
+UPDATES SINCE I STARTED BOTHERING TO TRACK:
+
+- 15.04.16: Fixed bug that displayed incorrect temperature format in 7-Day forecast summary
