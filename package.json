@@ -1,0 +1,27 @@
+{
+  "name": "local_weather",
+  "version": "1.0.1",
+  "description": "local weather display and 7-day forecast",
+  "main": "index.html",
+  "dependencies": {
+    "httpdispatcher": "^1.0.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^1.0.0",
+    "jshint-stylish": "^2.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drewbstew/local_weather.git"
+  },
+  "author": "DrewBStew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drewbstew/local_weather/issues"
+  },
+  "homepage": "https://github.com/drewbstew/local_weather#readme"
+}
