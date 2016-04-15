@@ -125,7 +125,14 @@ function formatTemp(temp) {
 }
 
 function setForecastWeather() {
-  $forecastSummary.html(weatherAPI.daily.summary);
+  var summary = weatherAPI.daily.summary;
+  var regexpNum = /\d+/;
+  if (centigrade) {
+    var newTemp = formatTemp(Number(summary.match(regexpNum)));
+    summary = summary.replace(regexpNum, newTemp);
+    summary = summary.replace(/F /, "C ");
+  }
+  $forecastSummary.html(summary);
   setForecastDailyWeather();
 }
 
