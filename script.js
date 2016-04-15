@@ -23,11 +23,11 @@ var $forecastDays = $('.forecast-day-container');
 // EVENTS
 
 function changeButtonText() {
-  degree = ['Celsius', 'Fahrenheit']
+  degree = ['Celsius', 'Fahrenheit'];
   if (!centigrade) {
-    $tempSwitch.html("Switch to " + degree[0])
+    $tempSwitch.html("Switch to " + degree[0]);
   } else {
-    $tempSwitch.html("Switch to " + degree[1])
+    $tempSwitch.html("Switch to " + degree[1]);
   }
 }
 
@@ -84,7 +84,7 @@ function getGoogleAPI() {
       googleAPI = info;
       findCityName();
     }
-  })
+  });
 }
 
 function findCityName() {
@@ -118,9 +118,9 @@ function setWeather() {
 
 function formatTemp(temp) {
   if (centigrade) {
-    return Math.round((temp - 32) * (5/9))
+    return Math.round((temp - 32) * (5/9));
   } else {
-    return Math.round(temp)
+    return Math.round(temp);
   }
 }
 
@@ -147,7 +147,7 @@ function findDay(time) {
   var newDate = new Date(time * 1000);
   var today = new Date().getTime();
   if ((newDate - today) <= 86400000) {
-    return "Tomorrow"
+    return "Tomorrow";
   } else {
     return getWeekday(newDate) + ", " + getMonthName(newDate) + " " + newDate.getDate();
   }
@@ -155,12 +155,12 @@ function findDay(time) {
 
 function getWeekday(date) {
   var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  return weekday[date.getDay()]
+  return weekday[date.getDay()];
 }
 
 function getMonthName(date) {
   var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  return months[date.getMonth()]
+  return months[date.getMonth()];
 }
 
 function setCurrentWeather(conditions) {
@@ -215,20 +215,15 @@ function formatConditions(conditions) {
     case 'partly-cloudy-day':
     case 'partly-cloudy-night':
       return 'cloudy';
-      break;
     case 'rain':
       return 'rain';
-      break;
     case 'snow':
     case 'sleet':
       return 'snow';
-      break;
     case 'clear-night':
       return 'clear-night';
-      break;
     default:
       return 'clear-day';
-      break;
   }
 }
 
